@@ -1,0 +1,97 @@
+.about {
+    padding-top: 50px;
+    padding-bottom: 70px;
+}
+
+
+/*---------------------
+  Section 1 Begin
+-----------------------*/
+
+.about__pic img {
+    min-width: 100%;
+}
+
+.about__item {
+    padding: 35px 15px 15px;
+    text-align: justify
+}
+
+
+/*---------------------
+  Section 2 Begin
+-----------------------*/
+
+img {
+    height: 100%;
+    min-width: 100%;
+}
+
+.about__item p {
+    margin-bottom: 0;
+}
+
+.testimonial__text {
+    text-align: center;
+    margin-right: 50px;
+    padding: 100px 50px 0;
+}
+
+.testimonial__text h3 {
+    margin-bottom: 25px;
+}
+
+
+/* Medium Device = 1200px */
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+    .testimonial__text {
+        padding-top: 65px;
+    }
+}
+
+
+/* Tablet Device = 768px */
+
+@media only screen and (max-width: 991px) {
+    .testimonial__text {
+        padding-top: 0;
+        margin-bottom: 25px;
+    }
+}
+
+
+/*---------------------
+  Section 3 Begin
+-----------------------*/
+
+.section-title {
+    font-size: 24px;
+    margin-bottom: 50px;
+    margin-top: 45px;
+    text-align: center;
+}
+
+.section-title h3 {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.clients {
+    padding-top: 0;
+    padding-bottom: 25px;
+}
+
+.client__item {
+    display: block;
+    margin-bottom: 75px;
+}
+
+
+/* Tablet Device = 768px */
+
+@media only screen and (max-width: 991px) {
+    .sm-delete {
+        display: none;
+    }
+}

@@ -1,0 +1,182 @@
+<!-- Breadcrumb Section Begin -->
+<div class="breadcrumb-option">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb__text">
+                    <h4>Giỏ hàng</h4>
+                    <div class="breadcrumb__links">
+                        <a href="">Trang chủ</a>
+                        <a href="">Sản phẩm</a>
+                        <span>Giỏ hàng</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Breadcrumb Section End -->
+
+<!-- Shopping Cart Section Begin -->
+<ng-container class="shopping-cart">
+    <ng-container class="shopping-cart">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8" style="padding:0px">
+                    <div class="card d-flex flex-column shopping__cart__table">
+                        <table class="card-body">
+                            <thead>
+                                <tr>
+                                    <!-- <th>STT</th> -->
+                                    <th>Sản phẩm</th>
+                                    <!-- <th>Price</th> -->
+                                    <th>Số lượng</th>
+                                    <th>Tổng</th>
+                                    <th>Xóa</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let p of products;">
+                                    <!-- <td>{{i+1}}</td> -->
+                                    <td class="product__cart__item">
+                                        <div class="product__cart__item__pic">
+                                            <img style="width:100px" src="{{p.icon_url}}" alt="">
+                                        </div>
+                                        <div class="product__cart__item__text">
+                                            <h6> <strong>{{p.name}}</strong> </h6>
+                                            <h6>{{p.price}}</h6>
+                                        </div>
+                                    </td>
+                                    <td class="quantity__item">
+                                        <div class="quantity">
+                                            <button type="button" class="btn" (click)="dec(p)"><i
+                                                    class="fa fa-minus"></i></button>
+                                            <span>{{p.qty}}</span>
+                                            <button type="button" class="btn" (click)="inc(p)"><i
+                                                    class="fa fa-plus"></i></button>
+                                        </div>
+                                    </td>
+                                    <td>{{p.qty*p.price}}</td>
+                                    <td>
+                                        <button (click)="removeItem(p)" class="btn btn-danger"><i
+                                                class="fas fa-trash-alt"></i></button>
+                                    </td>
+                                </tr>
+                                <tr *ngFor="let p of cartList;">
+                                    <!-- <td>{{i+1}}</td> -->
+                                    <td class="product__cart__item">
+                                        <div class="product__cart__item__pic">
+                                            <img style="width:100px" src="{{p.icon_url}}" alt="">
+                                        </div>
+                                        <div class="product__cart__item__text">
+                                            <h6> <strong>{{p.name}}</strong> </h6>
+                                            <h6>{{p.price}}</h6>
+                                        </div>
+                                    </td>
+                                    <td class="quantity__item">
+                                        <div class="quantity">
+                                            <button type="button" class="btn" (click)="dec(p)"><i
+                                                    class="fa fa-minus"></i></button>
+                                            <span>{{p.qty}}</span>
+                                            <button type="button" class="btn" (click)="inc(p)"><i
+                                                    class="fa fa-plus"></i></button>
+                                        </div>
+                                    </td>
+                                    <td>{{p.qty*p.price}}</td>
+                                    <td>
+                                        <button (click)="delete(p._id)" class="btn btn-danger"><i
+                                                class="fas fa-trash-alt"></i></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="row card">
+                        <strong>TỔNG ĐƠN HÀNG: {{grandTotal}}</strong>
+                    </div>
+                    <div class="row" style="margin-bottom: 40px">
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <div class="continue__btn">
+                                <a href="#" routerLink="/home-page" routerLinkActive="active"><i
+                                        class="fa-solid fa-arrow-left"></i> Tiếp tục mua sắm</a>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <div class="continue__btn remove__btn">
+                                <a href="javascript:void(0);" (click)="emptycart()"><i class="fa-solid fa-x"></i> Xóa
+                                    toàn
+                                    bộ</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-lg-4" style="padding:0px; height: 100%;">
+                    <div class="card cart__total">
+                        <h6><strong>Thông tin giao hàng</strong></h6>
+                        <form id="form-container" [formGroup]="logForm">
+                            <div class="form-group checkout__input">
+                                <p>Họ tên<span>*</span></p>
+                                <!-- <input type="text" placeholder="" class="checkout__input__add"> -->
+                                <input type="text" id="username" class="form-control checkout__input__add" formControlName="username" name="username"
+                                    [(ngModel)]="user['username']" [class.is-invalid]="username.invalid && username.touched">
+                                <div *ngIf="username.invalid && username.touched" class="my-2">
+                                    <small *ngIf="username.errors?.['required']" class="text-danger">Họ và tên không được để trống!</small>
+                                    <small *ngIf="username.errors?.['minlength']" class="text-danger">Họ và tên bắt buộc trên 2 ký tự!</small>
+                                    <small *ngIf="username.errors?.['nameNotMatch']" class="text-danger">Họ và tên không được chứa ký tự đặc
+                                        biệt</small>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="checkout__input">
+                                    <p>Số điện thoại<span>*</span></p>
+                                    <input type="text" id="phone" class="form-control checkout__input__add" formControlName="phone" name="phone"
+                                        [class.is-invalid]="phone.invalid && phone.touched" [(ngModel)]="user['phone']" autofocus>
+                                    <div *ngIf="phone.invalid && phone.touched" class="my-2">
+                                        <small *ngIf="phone.errors?.['required']" class="text-danger">Số điện thoại không được để trống!</small>
+                                        <small *ngIf="phone.errors?.['minlength']" class="text-danger">Số điện thoại bắt buộc 10 chữ số!</small>
+                                        <small *ngIf="phone.errors?.['maxlength']" class="text-danger">Số điện thoại bắt buộc 10 chữ số!</small>
+                                        <small *ngIf="phone.errors?.['pattern']" class="text-danger"> Số điện thoại không hợp lệ!</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group checkout__input">
+                                <p>Địa chỉ<span>*</span></p>
+                                <input type="text" id="address" class="form-control checkout__input__add" formControlName="address" name="address"
+                                    [(ngModel)]="user['address']" [class.is-invalid]="address.invalid && address.touched">
+                                <div *ngIf="address.invalid && address.touched" class="my-2">
+                                    <small *ngIf="address.errors?.['required']" class="text-danger">Địa chỉ không được để trống!</small>
+                                    <small *ngIf="address.errors?.['minlength']" class="text-danger">Địa chỉ phải trên 10 ký tự!</small>
+                                </div>
+                            </div>
+                            <div>
+                                <p><strong>Chọn phương thức thanh toán<span style="color: red;">*</span></strong></p>
+                                <div class="grid" style="--bs-columns: 4; --bs-gap: 5rem;">
+                                    <div class="g-col-2">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked />
+                                            <label class="form-check-label" for="flexRadioDefault2">
+                                                Chuyển khoản </label>
+                                        </div>
+                                        <img class="me-2" width="45px" src="https://images.careerbuilder.vn/employer_folders/lot9/221789/103316momopink-logo.png" alt="Visa" />
+                                        <img class="me-2" width="45px" src="https://png.pngtree.com/png-vector/20200718/ourlarge/pngtree-atm-card-banking-flat-icon-png-image_2307566.jpg" alt="Mastercard" />
+
+                                    </div>
+                                    <div class="g-col-2" style="margin-top: 10px;">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" />
+                                            <label class="form-check-label" for="flexRadioDefault1"> COD
+                                                (Thanh toán khi nhận hàng) </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <button href="#" class="primary-btn" style="margin-top: 10px" (click)="Notification()" >ĐẶT HÀNG</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+
+  

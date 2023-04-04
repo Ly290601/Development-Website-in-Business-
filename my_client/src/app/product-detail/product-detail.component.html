@@ -1,0 +1,60 @@
+<!-- Shop Details Section Begin -->
+<div class="container">
+    <div class="row">
+        <img class="product__details__pic" src="{{productInfo.icon_url}}" alt="">
+    </div>
+    <div class="product__details__content">
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <div class="col-lg-8">
+                    <div class="product__details__text">
+                        <h4>{{productInfo.name}}</h4>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        </div>
+                        <h3>{{productInfo.price}} VNĐ</h3>
+                        <p>THÔNG TIN SẢN PHẨM: Ốp lưng iphone 5/5s/6/6s/6plus/6splus/7/8/7plus/8plus/x/xs/x max/11/11pro max/12/12pro max. Mã Sản Phẩm: Ốp lưng iphone trong lượn sóng tim mây 6/6plus/6splus/7/7plus/8/8plus/xs/11/12/13/pro/max/plus/promax-Awifi
+                            D1-5
+                        </p>
+                        <div class="product__details__cart__option">
+                            <div class="quantity">
+                                <div class="pro-qty">
+                                    <input type="text" value="1">
+                                </div>
+                            </div>
+                            <a href="javascript:void(0);" class="primary-btn" (click)="Notification()" (click)="addtocart(productInfo)">Thêm vào giỏ hàng</a>
+                        </div>
+                        <div class="product__details__btns__option">
+                            <a href="#"><i class="fa fa-heart"></i> Thêm vào yêu thích</a>
+                        </div>
+                        <div class="product__details__last__option">
+                            <h5><span>KIỂM TRA SẢN PHẨM</span></h5>
+                            <ul>
+                                <li><span>Mã sản phẩm:</span> {{productInfo.id}}</li>
+                                <li><span>Danh mục:</span> {{productInfo.category}}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Shop Details Section End -->
+
+<!-- Related Section Begin -->
+<!-- 
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <h3 class="related-title">Sản phẩm tương tự</h3>
+        </div>
+    </div>
+</div> -->
+
+<!-- Related Section End -->

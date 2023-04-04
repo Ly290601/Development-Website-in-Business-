@@ -1,0 +1,124 @@
+<!-- Shop Section Begin -->
+<section class="shop spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="shop__sidebar">
+                    <div class="shop__sidebar__search">
+                        <input (click)="search()" id="menu--search" type="text" [(ngModel)]="searchText" placeholder="&numsp; Search..." autocomplete="off" onkeyup="myFunction()">
+                        <div class="search-content" (mouseleave)="leave()" [class.d-none]="search_content">
+                            <table class="table">
+                                <tbody>
+                                    <tr *ngFor="let p of productList | filter:searchText" (click)="onSelect(p._id)">
+                                        <td>{{ p.name }}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="shop__sidebar__accordion">
+                        <div class="accordion" id="accordionExample">
+                            <div class="card">
+                                <div class="card-heading">
+                                    <a data-toggle="collapse" data-target="#collapseOne">DANH MỤC SẢN PHẨM</a>
+                                </div>
+                                <div id="collapseOne" class="collapse show" data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        <div class="shop__sidebar__categories">
+                                            <ul class="nice-scroll">
+                                                <li><a routerLink="/products/1">Thảm, rèm cửa</a></li>
+                                                <li><a routerLink="/products/2">Phụ kiện trang trí</a></li>
+                                                <li><a routerLink="/products/3">Nội thất tiện ích</a></li>
+                                                <li><a routerLink="/products/4">Cây giả trang trí</a></li>
+                                                <li><a routerLink="/products/5">Phụ kiện khác</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-heading">
+                                    <a data-toggle="collapse" data-target="#collapseSix">Tags</a>
+                                </div>
+                                <div id="collapseSix" class="collapse show" data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        <div class="shop__sidebar__tags">
+                                            <a href="#">Best seller</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-9">
+                <div class="shop__product__option">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <div class="shop__product__option__left">
+                                <p>Hiển thị sản phẩm</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <div class="shop__product__option__right">
+                                <p>Tìm kiếm theo giá: &nbsp;</p>
+                                <select>
+                                    <option value="">Thấp đến cao</option>
+                                    <option value="">Cao đến thấp</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xl-3 col-lg-4 col-md-3 col-sm-3 col-md-4 col-sm-6" *ngFor="let p of productList, index as i">
+                        <div class="product__item" *ngIf="i<12" (click)="onSelect(p._id)">
+                            <div class="product__item__pic">
+                                <img class="product__item__pic set-bg" data-setbg="" src="{{p.icon_url}}">
+                                <span class="label">New</span>
+                                <ul class="product__hover">
+                                    <li>
+                                        <a href="#"><img src="assets/images/icon/heart.png" alt="">
+                                            <span>Like</span></a>
+                                    </li>
+                                    <li>
+                                        <a href="#"><img src="assets/images/icon/compare.png" alt="">
+                                            <span>Compare</span></a>
+                                    </li>
+                                    <li>
+                                        <a href="#"><img src="assets/images/icon/search.png" alt=""></a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="product__item__text">
+                                <h6>{{p.name}}</h6>
+                                <a href="javascript:void(0);" class="add-cart" (click)=addtocart(p) (click)="Notification()">+ Add To Cart</a>
+                                <div class="rating">
+                                    <i class="fa-regular fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                </div>
+                                <h5>{{p.price}}₫</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Shop Section End -->
+
+<!-- Search Begin -->
+<div class="search-model">
+    <div class="h-100 d-flex align-items-center justify-content-center">
+        <div class="search-close-switch">+</div>
+        <form class="search-model-form">
+            <input type="text" id="search-input" placeholder="Search here.....">
+        </form>
+    </div>
+</div>
+<!-- Search End -->

@@ -1,0 +1,53 @@
+.box {
+    border: 0.5px solid rgba(131, 121, 121, 0.5);
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
+}
+
+.container {
+    font-size: 14px;
+}
+
+#form-container {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.item {
+    float: right;
+    text-decoration: none;
+}
+
+.item:hover {
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.lg {
+    width: 35%;
+}
+
+.regis {
+    float: left;
+    padding-bottom: 30px;
+}
+
+.logadmin {
+    float: right;
+    padding-bottom: 30px;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+@media(max-width:767px) {
+    .lg1 {
+        width: 45%;
+    }
+}
+
+@media(max-width:280px) {
+    .lg1 {
+        width: 55%;
+    }
+}

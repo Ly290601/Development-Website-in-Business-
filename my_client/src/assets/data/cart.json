@@ -1,0 +1,20 @@
+[
+    {
+        "name": "Thảm lót sàn lông thỏ hình gấu",
+        "icon_url": "../assets/images/products/TRC_Tham_01.png",
+        "price": 150000,
+        "qty": 1
+    },
+    {
+        "name": "Thảm lót sàn hoa hướng dương",
+        "icon_url": "../assets/images/products/TRC_Tham_02.png",
+        "price": 120000,
+        "qty": 1
+    },
+    {
+        "name": "Thảm lót sàn hình quả đào",
+        "icon_url": "../assets/images/products/TRC_Tham_03.png",
+        "price": 90000,
+        "qty": 1
+    }
+]
